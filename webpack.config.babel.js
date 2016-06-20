@@ -23,6 +23,9 @@ module.exports = {
   ],
   module: {
     loaders:[{
+      test:/\.css$/, 
+      loader:"style-loader!css-loader?modules&localIdentName=[name]_[local]-[hash:base64:5]"
+    },{
       test: /\.js$/,
       exclude: /node_modules/,
       loader: "babel-loader",
