@@ -1,0 +1,62 @@
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+.list{
+  margin-bottom: 20px;
+}
+.item{
+  display: flex;
+  border : 1px solid #ccc;
+  height:40px;
+  margin-bottom: 10px;
+}
+
+.leftBar{
+  width:100px;
+  height:40px;
+  border-radius:5px;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.main{
+  flex:2;
+  padding-left:5px;
+  color: #000;
+  display: flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.notice{
+  margin-top:10px;
+  font-size:12px;
+  color:#666;
+  text-align:center;
+}
+
+.loginBtnBox{
+  margin-top:20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginBtn{
+  overflow: hidden;
+  width:200px;
+  height:40px;
+  line-height:40px;
+  padding: 2px 5px 2px 5px;
+  border-radius:10px;
+  background-color: #ff0000;
+  font-size:14px;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: center;
+}

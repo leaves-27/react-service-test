@@ -1,0 +1,47 @@
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+.loginBox{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.inputBox{
+  display: flex;
+  flex-direction: column;
+}
+
+.textInput{
+  width:260px;
+  height:40px;
+  padding:2px 5px;
+  background-color:#ffffff;
+  border:1px solid #ccc;
+  border-radius:5px;
+  font-size:12px;
+  margin-bottom: 20px;
+}
+
+.loginBtnBox{
+  display: flex;
+  align-items : center;
+  justify-content : center;
+}
+
+.loginBtn{
+  width:200px;
+  height:40px;
+  line-height:40px;
+  padding: 2px 5px 2px 5px;
+  border-radius:10px;
+  background-color: #ff0000;
+  text-align:center;
+  font-size:14px;
+  color:#ffffff;
+  cursor: pointer;
+}

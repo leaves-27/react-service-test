@@ -1,0 +1,49 @@
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+.item{
+  width:100%;
+}
+
+.title{
+  background-color:#ccc;
+  border-bottom:1px solid #999;
+  padding: 8px 0px;
+}
+.desc{
+  padding: 6px 0px;
+  border-bottom:1px solid #999;
+  display: flex;
+}
+.leftBar{
+  width:200px;
+}
+.main{
+  flex:2;
+}
+.rightBar{
+  width:100px;
+}
+
+.loginBtnBox{
+  margin-top:50px;
+  align-items:center;
+  justify-content:center;
+}
+.loginBtn{
+  width:200px;
+  height:40px;
+  line-height:40px;
+  padding:2px 5px;
+  border-radius:10px;
+  background-color:#ff0000;
+  font-size:14px;
+  color:#ffffff;
+  text-align:center;
+  cursor: pointer;
+}

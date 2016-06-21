@@ -2,20 +2,19 @@ import React,{Component,PropTypes} from 'react';
 // import classNames from 'classnames';
 import styles from './signin.css';
 
-console.log(styles.background);
-
 class SignIn extends Component {
 	constructor(props) {
     super(props)
   }
-
+  hanlder(){
+    console.log("我是点击事件");
+  }
   render() {
-    
   	const { value } = this.props;
     return (
-      <div className={styles.background}>
+      <div className={styles.container}>
       	<p>{value}</p>
-        <p>点击我1</p>
+        <a className={styles.button} onClick={this.hanlder}>点击我</a>
       </div>
     );
   }

@@ -1,0 +1,11 @@
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+.container p{margin-bottom: 10px;}
+.button{color: #0000ff;}
+.button:hover{text-decoration: underline;cursor: pointer;}

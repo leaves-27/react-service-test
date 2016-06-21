@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
-  plugins: [
+  plugins:[
     new HtmlwebpackPlugin({
       filename: 'index.html',
       template: './client/index.html'
