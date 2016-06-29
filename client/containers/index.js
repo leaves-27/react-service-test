@@ -1,11 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import SignIn from '../components/signin/signin.js';
-// import Courier from '../components/courier/courier.js';
-// import Setting from '../components/setting/setting.js';
-// import Login from '../components/login/login.js';
-// import IdCard from '../components/idcard/idcard.js';
-// import Notice from '../components/notice/notice.js';
+import { render } from 'react-dom'
+
+import { Router, Route, Link, IndexRoute, Redirect,browserHistory } from 'react-router';
+
+import css from '../base.css';
+import SignIn from '../components/signin/signin.js';
+import Courier from '../components/courier/courier.js';
+import Setting from '../components/setting/setting.js';
+import Login from '../components/login/login.js';
+import IdCard from '../components/idcard/idcard.js';
+import Notice from '../components/notice/notice.js';
 import Order from '../components/order/order.js';
 
 const rootEl = document.getElementById('root');
@@ -56,41 +60,46 @@ const order = [{
   src:"../../assets/pic02.png"
 }]
 
-function render() {
-  // ReactDOM.render(
-  //  <SignIn
-  //    value={signIn.value}
-  //  />,
-  //   rootEl  
-  // )
-  // ReactDOM.render(
-  // 	<Courier
-  // 		courierList={json}
-  // 		notice={notice}
-  // 	/>,
-  //   rootEl  
-  // )
-  // ReactDOM.render(
-  //  <Setting />,
-  //   rootEl  
-  // )
-  // ReactDOM.render(
-  //  <Login />,
-  //   rootEl  
-  // )
-  // ReactDOM.render(
-  //   <IdCard
-  //     list={idCard}
-  //   />,
-  //   rootEl  
-  // )
 
-  ReactDOM.render(
-    <Order
-      data={notice}
-    />,
-    rootEl  
-  )
-}
+// ReactDOM.render(
+//  <SignIn
+//    value={signIn.value}
+//  />,
+//   rootEl  
+// )
+// ReactDOM.render(
+//  <Login />,
+//   rootEl  
+// )
+// ReactDOM.render(
+//  <Courier
+//    courierList={json}
+//    notice={notice}
+//  />,
+//   rootEl  
+// )
+// ReactDOM.render(
+//  <Setting />,
+//   rootEl  
+// )
 
-render()
+// ReactDOM.render(
+//   <IdCard
+//     list={idCard}
+//   />,
+//   rootEl  
+// )
+
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={Login}>
+      <IndexRoute component={Login}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/courier" component={Courier}/>
+      <Route path="/setting" component={Setting}/>
+      <Route path="/notice" component={Notice}/>
+      <Route path="*" component={Login}/>
+    </Route>
+  </Router>),
+  rootEl  
+)
