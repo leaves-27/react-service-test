@@ -1,7 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom'
 
-import { Router, Route, Link, IndexRoute, Redirect,browserHistory } from 'react-router';
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import { createDevTools } from 'redux-devtools'
+
 
 import css from '../base.css';
 import SignIn from '../components/signin/signin.js';
@@ -11,6 +16,26 @@ import Login from '../components/login/login.js';
 import IdCard from '../components/idcard/idcard.js';
 import Notice from '../components/notice/notice.js';
 import Order from '../components/order/order.js';
+
+import * as reducers from '../reducers'
+
+const reducer = combineReducers({
+  ...reducers,
+  routing: routerReducer
+})
+
+const DevTools = createDevTools(
+  <DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
+    <LogMonitor theme="tomorrow" preserveScrollTop={false} />
+  </DockMonitor>
+)
+
+const store = createStore(
+  reducer,
+  DevTools.instrument()
+)
+const history = syncHistoryWithStore(browserHistory, store)
+
 
 const rootEl = document.getElementById('root');
 
@@ -91,15 +116,20 @@ const order = [{
 // )
 
 render((
-  <Router history={browserHistory}>
-    <Route path="/" component={Login}>
-      <IndexRoute component={Login}/>
-      <Route path="/login" component={Login}/>
-      <Route path="/courier" component={Courier}/>
-      <Route path="/setting" component={Setting}/>
-      <Route path="/notice" component={Notice}/>
-      <Route path="*" component={Login}/>
-    </Route>
-  </Router>),
+  <Provider store={store}>
+    <div>
+      <Router history={history}>
+        <Route path="/" component={Login}>
+          <IndexRoute component={Setting}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/courier" component={Courier}/>
+          <Route path="/setting" component={Setting}/>
+          <Route path="/notice" component={Notice}/>
+          <Route path="*" component={Login}/>
+        </Route>
+      </Router>
+      <DevTools />
+    </div>
+  </Provider>),
   rootEl  
 )
